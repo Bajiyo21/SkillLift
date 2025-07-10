@@ -17,6 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('library')">Library</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('skills')">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('upload')">Upload</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('contact')">Contact</a></li>
@@ -120,35 +121,68 @@
 
   <!-- ✅ Section 2: Upload -->
   <div id="upload" class="content-section" style="display: none;">
-    <section class="container py-5">
+    <!-- ✅ Upload Section: Customizable Skill Title -->
+    <section class="container py-5" id="uploadSection">
       <h2 class="text-center mb-4">Upload Your Skill Video</h2>
-      <form class="w-75 mx-auto">
+      <form id="skillUploadForm">
+
+        <!-- Skill Title (fully customizable) -->
         <div class="mb-3">
-          <label for="title" class="form-label">Video Title</label>
-          <input type="text" class="form-control" id="title" placeholder="Enter title of your skill video">
+          <label for="skillTitle" class="form-label">Skill Title</label>
+          <input type="text" class="form-control" id="skillTitle" placeholder="Enter your skill title (e.g., Animation, Coding)" required>
         </div>
+
+        <!-- Description (optional) -->
         <div class="mb-3">
-          <label for="category" class="form-label">Skill Category</label>
-          <select class="form-select" id="category">
-            <option selected disabled>Choose...</option>
-            <option value="web">Web Development</option>
-            <option value="design">Graphic Design</option>
-            <option value="music">Music</option>
-          </select>
+          <label for="skillDescription" class="form-label">Description</label>
+          <textarea class="form-control" id="skillDescription" rows="3" placeholder="Brief description about the skill..." required></textarea>
         </div>
+
+        <!-- Upload Video -->
         <div class="mb-3">
-          <label for="video" class="form-label">Upload Video</label>
-          <input type="file" class="form-control" id="video">
+          <label for="videoUpload" class="form-label">Upload Your Video</label>
+          <input type="file" class="form-control" id="videoUpload" accept="video/*" required>
         </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Upload</button>
+        </div>
+
       </form>
     </section>
+
+          
   </div>
+    <!-- ✅ Section 4: Library -->
+  <div id="library" class="content-section" style="display: none;">
+    <section class="container py-5">
+      <h2 class="text-center mb-4">Uploaded Skill Videos</h2>
+      <div class="row g-4" id="videoList">
+        <!-- Example video cards -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow">
+            <video class="card-img-top" controls>
+              <source src="example-video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="card-body">
+              <h5 class="card-title">Example Skill Title</h5>
+              <p class="card-text">Category: Web Development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
 
   <!-- ✅ Section 3: Contact -->
   <div id="contact" class="content-section" style="display: none;">
     <section class="container py-5">
-      <h2 class="text-center mb-4">Contact Us</h2>
+      <h2 class="text-cent  <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+        </section>er mb-4">Contact Us</h2>
       <p class="text-center">Email: <a href="mailto:bajiyop335@gmail.com">bajiyop335@gmail.com</a></p>
       <p class="text-center">Phone: +91-XXXXXXXXXX</p>
     </section>
@@ -173,6 +207,12 @@
   </script>
   <!-- Bootstrap JavaScript (for navbar toggle) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  function toggleOtherSkill(value) {
+    const box = document.getElementById('other-skill-box');
+    box.style.display = value === 'other' ? 'block' : 'none';
+  }
+  </script>
 
 
 </body>
