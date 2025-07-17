@@ -17,6 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('signup')">Sign Up</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('library')">Library</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('skills')">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('upload')">Upload</a></li>
@@ -35,7 +36,7 @@
           <h1 class="display-4 fw-bold">SkillLift</h1>
           <p class="lead">Helping students, jobless individuals, and safe-workers learn and earn from home.</p>
           <p class="fst-italic">"Don't hide your skills — expose them for a better future."</p>
-          <button class="btn btn-light btn-lg mt-3" onclick="showSection('skills')">Start Learning</button>
+          <button class="btn btn-light btn-lg mt-3" onclick="showSection('authSection')">Start Learning</button>
         </div>
         <!-- Image -->
         <div class="col-md-6 text-center mt-4 mt-md-0">
@@ -180,13 +181,67 @@
   <!-- ✅ Section 3: Contact -->
   <div id="contact" class="content-section" style="display: none;">
     <section class="container py-5">
-      <h2 class="text-cent  <button type="submit" class="btn btn-primary">Upload</button>
-          </form>
-        </section>er mb-4">Contact Us</h2>
+      <h2 class="text-center mb-4">Contact Us</h2>
+          
+        
       <p class="text-center">Email: <a href="mailto:bajiyop335@gmail.com">bajiyop335@gmail.com</a></p>
       <p class="text-center">Phone: +91-XXXXXXXXXX</p>
     </section>
   </div>
+  <!-- 👤 Authentication Section -->
+  <section class="container py-5" id="authSection">
+    <h2 class="text-center mb-4">Welcome to SkillLift</h2>
+
+    <!-- Tabs for Sign Up & Login -->
+    <ul class="nav nav-tabs justify-content-center mb-4" id="authTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab">Sign Up</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+      </li>
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content" id="authTabsContent">
+      
+      <!-- ✅ Sign Up Tab -->
+      <div class="tab-pane fade show active" id="signup" role="tabpanel">
+        <form>
+          <div class="mb-3">
+            <label for="signupName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="signupName" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="signupEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="signupPassword" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- ✅ Login Tab -->
+      <div class="tab-pane fade" id="login" role="tabpanel">
+        <form>
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="loginEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
 
   <!-- ✅ Footer -->
   <footer class="bg-dark text-white text-center py-3">
@@ -202,7 +257,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      showSection('skills'); // Show Skills by default
+      showSection('authSection'); // Show Skills by default
     });
   </script>
   <!-- Bootstrap JavaScript (for navbar toggle) -->
